@@ -3,8 +3,9 @@ Full Stack Review App
 phase 1
 ---
 [x] git init & npm init (install package.json), add .gitignore
+[x] npm install express 7 pg
 [x] set up folders & base files (server.js, index.html etc.)
-[] spin up server & server html/js to browser
+[x] spin up server, add start script, & server html/js to browser
 
 phase 2
 ---
