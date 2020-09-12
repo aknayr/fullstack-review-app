@@ -17,6 +17,7 @@ function getInventory(){
         for(let i = 0; i < response.length; i++){
             // update DOM with items 
             el.append(`<li>
+            <button class = "sellItemButton" data-id="${response[i].id}">Sell</button>
                 ${response[i].size},
                 ${response[i].color}:
                 ${response[i].description}
@@ -43,18 +44,25 @@ function addItem(){
         url: '/inventory',
         data: objectToSend
     }).then(function(response){
+        // send object to server via AJAX POST
         console.log('back from POST with:', response);
-
+        // update the DOM
+        getInventory();
     }).catch(function(err){
         console.log(err);
         alert('There was an error');
         res.sendStatus(500);
-    })
-    // if successful, update the DOM
-
+    }) // end AJAX
 } // end addItem
 
 function onReady(){
     $('#addItemButton').on('click', addItem);
+    // click handler for dynamically created elements
+    $('#itemsOut').on('click','.sellItemButton', sellItem);
     getInventory();
 } // end onReady
+
+function sellItem(){
+    const myId = $(this).data('id');
+    console.log('in sellItem:', myId);
+}
