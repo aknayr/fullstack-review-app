@@ -14,11 +14,11 @@ phase 2
 
 phase 3
 ---
-[] set up database and tables
-[] test server-db connection (pool module, test queries)
+[x] set up database and tables
+[x] test server-db connection (pool module, test queries)
 
 phase 4
 ---
-[] GET call from AJAX
+[x] GET call from AJAX
 [] display the info on DOM
 [] POST: get user information, sending to server, adding to the db
