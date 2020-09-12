@@ -20,5 +20,5 @@ phase 3
 phase 4
 ---
 [x] GET call from AJAX
-[] display the info on DOM
+[x] display the info on DOM
 [] POST: get user information, sending to server, adding to the db

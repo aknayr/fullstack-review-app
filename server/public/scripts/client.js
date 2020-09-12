@@ -11,7 +11,17 @@ function getInventory(){
     }).then(function(response){
         console.log('Back from GET with:', response);
         // empty the output element
+        let el = $('#itemsOut').empty();
+        el.empty();
         // loop through response
+        for(let i = 0; i < response.length; i++){
+            // update DOM with items 
+            el.append(`<li>
+                ${response[i].size},
+                ${response[i].color}:
+                ${response[i].description}
+            </li>`)
+        } // end for
         // update DOM with items 
     }).catch(function(err){
         console.log(err);
@@ -19,6 +29,32 @@ function getInventory(){
     })
 } // end getInventory
 
+function addItem(){
+    console.log('in addItem');
+    // get user Input & put into an object
+    const objectToSend = {
+        size: $('#sizeIn').val(),
+        color: $('#colorIn').val(),
+        description: $('#descriptionIn').val(),
+    }
+    // send that object to server with AJAX POST
+    $.ajax({
+        method: 'POST',
+        url: '/inventory',
+        data: objectToSend
+    }).then(function(response){
+        console.log('back from POST with:', response);
+
+    }).catch(function(err){
+        console.log(err);
+        alert('There was an error');
+        res.sendStatus(500);
+    })
+    // if successful, update the DOM
+
+} // end addItem
+
 function onReady(){
+    $('#addItemButton').on('click', addItem);
     getInventory();
 } // end onReady
