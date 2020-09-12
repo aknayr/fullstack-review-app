@@ -2,9 +2,8 @@ Full Stack Review App
 
 phase 1
 ---
-[] git init & npm init (install package.json), add .gitignore
-
-[] set up folders & base files (server.js, index.html etc.)
+[x] git init & npm init (install package.json), add .gitignore
+[x] set up folders & base files (server.js, index.html etc.)
 [] spin up server & server html/js to browser
 
 phase 2
