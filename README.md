@@ -9,8 +9,8 @@ phase 1
 
 phase 2
 ---
-[] set up router module (GET & POST route)
-[] test handshake w/ client side using AJAX
+[x] set up router module (GET & POST route)
+[x] test handshake w/ client side using AJAX
 
 phase 3
 ---
