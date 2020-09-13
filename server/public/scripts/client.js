@@ -65,4 +65,14 @@ function onReady(){
 function sellItem(){
     const myId = $(this).data('id');
     console.log('in sellItem:', myId);
+    $.ajax({
+        method: 'DELETE',
+        url: '/inventory/' + myId
+    }).then(function(response){
+        console.log('back from DELETE:', response);
+        getInventory();
+    }).catch(function(err){
+        console.log(err);
+        alert('unable to delete');
+    }) // end AJAX DELETE
 }

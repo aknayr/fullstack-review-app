@@ -3,6 +3,20 @@ const express = require('express');
 const router = express.Router();
 const pool = require('./pool');
 
+router.delete('/:id', (req,res) => {
+    console.log('/inventory DELETE:', req.params);
+    res.send('ribbet');
+    // set up queryString
+    const queryString = `DELETE FROM "items" WHERE id = ${req.params.id}`;
+    // ask pool to run query
+    pool.query(queryString).then((results)=>{
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log(err);
+        res.sendStatus(500);
+    }) // end query
+}); // end AJAX delete
+
 // gets information
 router.get('/', (req, res) => {
     console.log('/inventory GET hit');
